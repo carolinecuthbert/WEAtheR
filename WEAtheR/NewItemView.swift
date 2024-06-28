@@ -10,7 +10,7 @@ struct NewItemView: View {
     
     var body: some View {
         VStack {
-            TextField("Add new item", value: $newItemName, formatter: NumberFormatter())
+            TextField("Add new item", text: $newItemName)
                 .padding()
                 .textFieldStyle(RoundedBorderTextFieldStyle())
             TextField("Quantity", value: $newQuantity, formatter: NumberFormatter())
