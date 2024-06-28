@@ -38,14 +38,14 @@ struct ListView: View {
                         Button(action: {
                             toggleChecked(listItem: listItem)
                         }) {
-                            if (listItem.isChecked) {
+                            if listItem.isChecked {
                                 Image(systemName: "checkmark.square")
                                     .foregroundStyle(Color("grey"))
                             } else {
                                 Image(systemName: "square")
                             }
                         }
-                        if (listItem.isChecked) {
+                        if listItem.isChecked {
                             TextField("Item Name", text: $listItem.name)
                                 .textFieldStyle(PlainTextFieldStyle())
                                 .strikethrough()
@@ -60,7 +60,7 @@ struct ListView: View {
                             .frame(width: 1)
                         Spacer()
                             .frame(width: 20.0)
-                        if (listItem.isChecked) {
+                        if listItem.isChecked {
                             TextField("Quantity", value: $listItem.quantity, formatter: NumberFormatter())
                                 .frame(width: 50)
                                 .keyboardType(.numberPad)
@@ -80,7 +80,7 @@ struct ListView: View {
         }
         .navigationTitle(tripItem.title)
         .padding()
-        HStack{
+        HStack {
             Spacer()
             Button {
                 withAnimation {
@@ -91,11 +91,13 @@ struct ListView: View {
                     .font(.system(size: 50))
                     .foregroundStyle(Color("dark blue"))
             }
-        }.padding()
+        }
+        .padding()
         if showNewItem {
-            NewItemView(tripItem: TripItem(title: "", location: "", date: "", occasion: "", listItems: []), showNewItem: $showNewItem, newItemName: $newItemName, newQuantity: $newQuantity)
+            NewItemView(tripItem: tripItem, showNewItem: $showNewItem, newItemName: $newItemName, newQuantity: $newQuantity)
         }
     }
+
     func addItem() {
         guard let quantity = Int(newQuantity) else { return }
         let newListItem = ListItem(name: newItemName, quantity: quantity)
@@ -104,7 +106,7 @@ struct ListView: View {
         newItemName = ""
         newQuantity = "1"
     }
-    
+
     func toggleChecked(listItem: ListItem) {
         listItem.isChecked.toggle()
     }
@@ -126,10 +128,11 @@ struct ListView: View {
     let sampleListItem1 = ListItem(name: "Apples", quantity: 5, isChecked: false)
     let sampleListItem2 = ListItem(name: "Bananas", quantity: 3, isChecked: false)
     sampleTripItem.listItems.append(contentsOf: [sampleListItem1, sampleListItem2])
-    
+
     return ListView(tripItem: sampleTripItem)
         .modelContainer(container)
 }
+
 
 
 /*// LIST VERSION

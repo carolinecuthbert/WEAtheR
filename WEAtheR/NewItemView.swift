@@ -1,11 +1,5 @@
-//
-//  NewItemView.swift
-//  WEAtheR
-//
-//  Created by Caroline Cuthbert on 6/27/24.
-//
-
 import SwiftUI
+import SwiftData
 
 struct NewItemView: View {
     @Bindable var tripItem: TripItem
@@ -15,7 +9,7 @@ struct NewItemView: View {
     @Binding var newQuantity: String
     
     var body: some View {
-        VStack{
+        VStack {
             TextField("Add new item", text: $newItemName)
                 .padding()
                 .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -34,16 +28,19 @@ struct NewItemView: View {
                     .cornerRadius(8)
             }
         }
+        .padding()
     }
+    
     func addItem() {
         guard let quantity = Int(newQuantity) else { return }
-        let newListItem = ListItem(name: newItemName, quantity: quantity)
+        let newListItem = ListItem(name: newItemName, quantity: quantity, isChecked: false)
         tripItem.listItems.append(newListItem)
         modelContext.insert(newListItem)
         newItemName = ""
         newQuantity = "1"
     }
 }
+
 
 /*
 #Preview {
