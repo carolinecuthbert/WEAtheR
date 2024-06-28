@@ -1,3 +1,5 @@
+//WHY IN THE WORLD DOES THE WEATHER NOT WORK
+
 import SwiftUI
 import CoreLocation
 import SwiftData
@@ -161,6 +163,8 @@ struct CreateView: View {
                                 fetchWeather()
                                 let temperature = Int(1.8 * (weather?.main.temp ?? 0.0) + 32)
                                 let description = weather?.weather.first?.description ?? ""
+                                print (temperature)
+                                print(description)
                                 addTrip(temp: temperature, info: description)
                                 isSaved = true
                             }
@@ -171,6 +175,16 @@ struct CreateView: View {
                         .tint(Color("cre"))
                     }
                 }
+            }
+        }
+        .onAppear {
+            if let location = locationManager.location {
+                fetchWeather(for: location)
+            }
+        }
+        .onChange(of: locationManager.location) { oldLocation, newLocation in
+            if let location = newLocation {
+                fetchWeather(for: location)
             }
         }
     }
@@ -211,7 +225,8 @@ struct CreateView: View {
                 recs.append("Leggings (under shorts)")
                 recs.append("Hoodie")
                 recs.append("Thin puffer")
-                recs.append("Beanie / gloves")
+                recs.append("Beanie")
+                recs.append("Gloves")
                 recs.append("Sneakers")
             }
             else if (temp<50) {
@@ -239,14 +254,16 @@ struct CreateView: View {
                 recs.append("Jeans / sweatpants")
                 recs.append("Hoodie")
                 recs.append("Warm coat")
-                recs.append("Beanie / gloves")
+                recs.append("Beanie")
+                recs.append("Gloves")
                 recs.append("Snow boots")
             }
             else if (temp<50) {
                 recs.append("Jeans")
                 recs.append("T-shirt")
                 recs.append("Sweatshirt")
-                recs.append("Beanie / gloves")
+                recs.append("Beanie")
+                recs.append("Gloves")
                 recs.append("Sneakers")
             }
             else if (temp<75) {
@@ -289,7 +306,14 @@ struct CreateView: View {
     //
     //
     //RANDO WEATHER CODE IGNORE
-    private func fetchWeather() {
+    func fetchWeather(for location: CLLocation) {
+        let weatherService = WeatherService()
+        weatherService.getWeather(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude) { response in
+            self.weather = response
+        }
+    }
+    
+    func fetchWeather() {
         let weatherService = WeatherService()
         if let latitude = viewModel.latitude, let longitude = viewModel.longitude {
             weatherService.getWeather(latitude: latitude, longitude: longitude) { response in
@@ -297,7 +321,7 @@ struct CreateView: View {
             }
         }
     }
-}
+}//end of view
 
 #Preview {
     let config = ModelConfiguration(isStoredInMemoryOnly: true)

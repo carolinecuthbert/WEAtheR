@@ -22,6 +22,7 @@
 		820EA4C92C2E894D000F6D92 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820EA4C82C2E894D000F6D92 /* WeatherService.swift */; };
 		820EA4CB2C2E8A99000F6D92 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820EA4CA2C2E8A99000F6D92 /* ListItem.swift */; };
 		820EA4CD2C2E8FF0000F6D92 /* NewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820EA4CC2C2E8FF0000F6D92 /* NewItemView.swift */; };
+		8235B3332C2EB55700451F40 /* NewTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8235B3322C2EB55700451F40 /* NewTripView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		820EA4C82C2E894D000F6D92 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 		820EA4CA2C2E8A99000F6D92 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
 		820EA4CC2C2E8FF0000F6D92 /* NewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemView.swift; sourceTree = "<group>"; };
+		8235B3322C2EB55700451F40 /* NewTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTripView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,12 +78,13 @@
 				820EA4AA2C2E8857000F6D92 /* WEAtheRApp.swift */,
 				820EA4AC2C2E8857000F6D92 /* ContentView.swift */,
 				820EA4B82C2E88CB000F6D92 /* DailyView.swift */,
+				8235B3322C2EB55700451F40 /* NewTripView.swift */,
+				820EA4C02C2E890A000F6D92 /* CreateView.swift */,
 				820EA4BA2C2E88E2000F6D92 /* GameView.swift */,
 				820EA4BC2C2E88F0000F6D92 /* ListView.swift */,
 				820EA4CC2C2E8FF0000F6D92 /* NewItemView.swift */,
 				820EA4CA2C2E8A99000F6D92 /* ListItem.swift */,
 				820EA4BE2C2E88FD000F6D92 /* TripsView.swift */,
-				820EA4C02C2E890A000F6D92 /* CreateView.swift */,
 				820EA4C22C2E8917000F6D92 /* TripItem.swift */,
 				820EA4C42C2E892B000F6D92 /* LocationViewModel.swift */,
 				820EA4C62C2E893B000F6D92 /* LocationManager.swift */,
@@ -178,6 +181,7 @@
 				820EA4C72C2E893B000F6D92 /* LocationManager.swift in Sources */,
 				820EA4BD2C2E88F0000F6D92 /* ListView.swift in Sources */,
 				820EA4BF2C2E88FD000F6D92 /* TripsView.swift in Sources */,
+				8235B3332C2EB55700451F40 /* NewTripView.swift in Sources */,
 				820EA4C12C2E890A000F6D92 /* CreateView.swift in Sources */,
 				820EA4BB2C2E88E2000F6D92 /* GameView.swift in Sources */,
 				820EA4AB2C2E8857000F6D92 /* WEAtheRApp.swift in Sources */,
