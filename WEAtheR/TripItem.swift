@@ -9,11 +9,15 @@ class TripItem {
     var occasion: String
     var listItems: [ListItem]
 
-    init(title: String, location: String, length: Int, occasion: String, listItems: [ListItem] = []) {
+    init(title: String, location: String, length: Int, occasion: String, listItems: [ListItem]) {
         self.title = title
         self.location = location
         self.length = length
         self.occasion = occasion
         self.listItems = listItems
+    }
+    
+    func addItem(item: ListItem) {
+        self.listItems.append(item)
     }
 }
