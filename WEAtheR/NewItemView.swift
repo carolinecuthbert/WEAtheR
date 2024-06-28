@@ -23,8 +23,9 @@ struct NewItemView: View {
             } label: {
                 Text("Add Item")
                     .padding()
-                    .background(Color.blue)
-                    .foregroundColor(.white)
+                    .font(.system(size: 20.0))
+                    .background(Color("cre"))
+                    .foregroundColor(.black)
                     .cornerRadius(8)
             }
         }

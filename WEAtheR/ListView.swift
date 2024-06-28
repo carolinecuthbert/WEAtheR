@@ -10,20 +10,6 @@ struct ListView: View {
 
     var body: some View {
         VStack {
-            TextField("Add new item", text: $newItemName)
-                .padding()
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-            TextField("Quantity", text: $newQuantity)
-                .keyboardType(.numberPad)
-                .padding()
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-            Button(action: addItem) {
-                Text("Add Item")
-                    .padding()
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(8)
-            }
             HStack {
                 Text("Item")
                     .font(.headline)

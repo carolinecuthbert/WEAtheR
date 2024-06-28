@@ -12,12 +12,14 @@ struct ContentView: View {
           .ignoresSafeArea()
         VStack {
           Text("Welcome to")
-            .font(.title2)
+            .font(.system(size: 50.0))
             .fontWeight(.semibold)
           Text("WEAtheR")
-            .font(.title)
+            .font(.system(size: 60.0))
             .fontWeight(.bold)
             .foregroundColor(Color(hue: 0.538, saturation: 0.526, brightness: 0.603))
+          Spacer()
+                .frame(height: 75.0)
           HStack{
             NavigationLink(destination: TripsView()) {
             label: do{Image("GoToLists")
