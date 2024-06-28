@@ -6,14 +6,14 @@ struct NewItemView: View {
     @Environment(\.modelContext) var modelContext
     @Binding var showNewItem: Bool
     @Binding var newItemName: String
-    @Binding var newQuantity: String
+    @Binding var newQuantity: Int
     
     var body: some View {
         VStack {
-            TextField("Add new item", text: $newItemName)
+            TextField("Add new item", value: $newItemName, formatter: NumberFormatter())
                 .padding()
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-            TextField("Quantity", text: $newQuantity)
+            TextField("Quantity", value: $newQuantity, formatter: NumberFormatter())
                 .keyboardType(.numberPad)
                 .padding()
                 .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -33,12 +33,11 @@ struct NewItemView: View {
     }
     
     func addItem() {
-        guard let quantity = Int(newQuantity) else { return }
-        let newListItem = ListItem(name: newItemName, quantity: quantity, isChecked: false)
+        let newListItem = ListItem(name: newItemName, quantity: newQuantity, isChecked: false)
         tripItem.listItems.append(newListItem)
         modelContext.insert(newListItem)
         newItemName = ""
-        newQuantity = "1"
+        newQuantity = 0
     }
 }
 

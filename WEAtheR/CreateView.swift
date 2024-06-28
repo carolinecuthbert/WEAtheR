@@ -56,13 +56,14 @@ struct CreateView: View {
                         .frame(height: 40)
                     
                     HStack {
-                        Text("Dates")
+                        Text("Length (days):")
                             .font(.system(size: 30))
                             .fontWeight(.semibold)
                             .frame(maxWidth: .infinity, alignment: .leading)
                     } // HStack
                     
-                    TextField("Type a number here...", text: $tripItem.date)
+                    TextField("Type a number here...", value: $tripItem.length, formatter: NumberFormatter())
+                        .keyboardType(.numberPad)
                         .font(.system(size: 25))
                         .multilineTextAlignment(.center)
                         .background(Color(.systemGroupedBackground))
@@ -138,7 +139,6 @@ struct CreateView: View {
                     }//end of HStack
                     Spacer()
                         .frame(height: 125.0)
-                    
                     if (isSaved) {
                         NavigationLink(destination: Text("Hello")) {
                             Text("Continue")
@@ -149,7 +149,7 @@ struct CreateView: View {
                         .tint(Color("cre"))
                     } else {
                         Button("Create List ✔") {
-                            if (tripItem.title == "" || tripItem.location == "" || tripItem.date == "" || tripItem.occasion == "") {
+                            if (tripItem.title == "" || tripItem.location == "" || tripItem.length == 0 || tripItem.occasion == "") {
                                 didntComplete = true
                             } else {
                                 didntComplete = false
@@ -167,7 +167,7 @@ struct CreateView: View {
         }
     }
     func addTrip() {
-        let trip = TripItem(title: tripItem.title, location: tripItem.location, date: tripItem.date, occasion: tripItem.occasion)
+        let trip = TripItem(title: tripItem.title, location: tripItem.location, length: tripItem.length, occasion: tripItem.occasion)
         modelContext.insert(trip)
     }
 }
@@ -176,7 +176,7 @@ struct CreateView: View {
     let config = ModelConfiguration(isStoredInMemoryOnly: true)
     let container = try! ModelContainer(for: TripItem.self, ListItem.self, configurations: config)
 
-    let trip = TripItem(title: "", location: "", date: "", occasion: "")
+    let trip = TripItem(title: "", location: "", length: 0, occasion: "")
     return CreateView(tripItem: trip)
         .modelContainer(container)
 }

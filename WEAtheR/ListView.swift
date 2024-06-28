@@ -5,7 +5,7 @@ struct ListView: View {
     @Bindable var tripItem: TripItem
     @Environment(\.modelContext) var modelContext
     @State private var newItemName: String = ""
-    @State private var newQuantity: String = "1"
+    @State private var newQuantity: Int = 0
     @State private var showNewItem = false
 
     var body: some View {
@@ -84,15 +84,6 @@ struct ListView: View {
         }
     }
 
-    func addItem() {
-        guard let quantity = Int(newQuantity) else { return }
-        let newListItem = ListItem(name: newItemName, quantity: quantity)
-        tripItem.listItems.append(newListItem)
-        modelContext.insert(newListItem)
-        newItemName = ""
-        newQuantity = "1"
-    }
-
     func toggleChecked(listItem: ListItem) {
         listItem.isChecked.toggle()
     }
@@ -110,7 +101,7 @@ struct ListView: View {
     let config = ModelConfiguration(isStoredInMemoryOnly: true)
     let container = try! ModelContainer(for: TripItem.self, ListItem.self, configurations: config)
 
-    let sampleTripItem = TripItem(title: "Sample Trip", location: "Sample Location", date: "2024-07-01", occasion: "Casual", listItems: [])
+    let sampleTripItem = TripItem(title: "Sample Trip", location: "Sample Location", length: 1, occasion: "Casual", listItems: [])
     let sampleListItem1 = ListItem(name: "Apples", quantity: 5, isChecked: false)
     let sampleListItem2 = ListItem(name: "Bananas", quantity: 3, isChecked: false)
     sampleTripItem.listItems.append(contentsOf: [sampleListItem1, sampleListItem2])
