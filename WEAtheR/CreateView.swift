@@ -174,7 +174,7 @@ struct CreateView: View {
 
 #Preview {
     let config = ModelConfiguration(isStoredInMemoryOnly: true)
-    let container = try! ModelContainer(for: TripItem.self, configurations: config)
+    let container = try! ModelContainer(for: TripItem.self, ListItem.self, configurations: config)
 
     let trip = TripItem(title: "", location: "", date: "", occasion: "")
     return CreateView(tripItem: trip)

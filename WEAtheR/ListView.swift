@@ -6,6 +6,7 @@ struct ListView: View {
     @Environment(\.modelContext) var modelContext
     @State private var newItemName: String = ""
     @State private var newQuantity: String = "1"
+    @State private var showNewItem = false
 
     var body: some View {
         VStack {
@@ -63,8 +64,8 @@ struct ListView: View {
                             TextField("Quantity", value: $listItem.quantity, formatter: NumberFormatter())
                                 .frame(width: 50)
                                 .keyboardType(.numberPad)
-                            /*.strikethrough()
-                             .foregroundStyle(Color("grey"))*/
+                                .strikethrough()
+                                .foregroundStyle(Color("grey"))
                         } else {
                             TextField("Quantity", value: $listItem.quantity, formatter: NumberFormatter())
                                 .frame(width: 50)
@@ -79,8 +80,22 @@ struct ListView: View {
         }
         .navigationTitle(tripItem.title)
         .padding()
+        HStack{
+            Spacer()
+            Button {
+                withAnimation {
+                    self.showNewItem = true
+                }
+            } label: {
+                Text("+")
+                    .font(.system(size: 50))
+                    .foregroundStyle(Color("dark blue"))
+            }
+        }.padding()
+        if showNewItem {
+            NewItemView(tripItem: TripItem(title: "", location: "", date: "", occasion: "", listItems: []), showNewItem: $showNewItem, newItemName: $newItemName, newQuantity: $newQuantity)
+        }
     }
-
     func addItem() {
         guard let quantity = Int(newQuantity) else { return }
         let newListItem = ListItem(name: newItemName, quantity: quantity)
@@ -89,7 +104,7 @@ struct ListView: View {
         newItemName = ""
         newQuantity = "1"
     }
-
+    
     func toggleChecked(listItem: ListItem) {
         listItem.isChecked.toggle()
     }

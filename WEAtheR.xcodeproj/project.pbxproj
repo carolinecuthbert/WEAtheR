@@ -21,6 +21,7 @@
 		820EA4C72C2E893B000F6D92 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820EA4C62C2E893B000F6D92 /* LocationManager.swift */; };
 		820EA4C92C2E894D000F6D92 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820EA4C82C2E894D000F6D92 /* WeatherService.swift */; };
 		820EA4CB2C2E8A99000F6D92 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820EA4CA2C2E8A99000F6D92 /* ListItem.swift */; };
+		820EA4CD2C2E8FF0000F6D92 /* NewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820EA4CC2C2E8FF0000F6D92 /* NewItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		820EA4C62C2E893B000F6D92 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		820EA4C82C2E894D000F6D92 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 		820EA4CA2C2E8A99000F6D92 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
+		820EA4CC2C2E8FF0000F6D92 /* NewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				820EA4B82C2E88CB000F6D92 /* DailyView.swift */,
 				820EA4BA2C2E88E2000F6D92 /* GameView.swift */,
 				820EA4BC2C2E88F0000F6D92 /* ListView.swift */,
+				820EA4CC2C2E8FF0000F6D92 /* NewItemView.swift */,
 				820EA4CA2C2E8A99000F6D92 /* ListItem.swift */,
 				820EA4BE2C2E88FD000F6D92 /* TripsView.swift */,
 				820EA4C02C2E890A000F6D92 /* CreateView.swift */,
@@ -167,6 +170,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				820EA4CD2C2E8FF0000F6D92 /* NewItemView.swift in Sources */,
 				820EA4CB2C2E8A99000F6D92 /* ListItem.swift in Sources */,
 				820EA4B92C2E88CB000F6D92 /* DailyView.swift in Sources */,
 				820EA4AD2C2E8857000F6D92 /* ContentView.swift in Sources */,

@@ -20,9 +20,10 @@ struct TripsView: View {
                         .font(.system(size: 40))
                         .fontWeight(.bold)
                     Spacer()
-                    NavigationLink(destination: CreateView(tripItem: TripItem(title: "", location: "", date: "", occasion: "", listItems: []))) {
+                    NavigationLink(destination: CreateView(tripItem: TripItem(title: "", location: "", date: "", occasion: "", listItems: [ListItem(name: "", quantity: 0, isChecked: false)]))) {
                         Text("+")
                             .font(.system(size: 50))
+                            .foregroundStyle(Color("dark blue"))
                     }
                 }//end of HStack
                 .padding()
