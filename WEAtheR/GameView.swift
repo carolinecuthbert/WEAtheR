@@ -565,14 +565,13 @@ struct GameView: View {
             Text("Congratulations!")
                 .font(.system(size: 40.0))
             Spacer()
-                .frame(height: 10.0)
+                .frame(height: 20.0)
             Text("🎉 YOU WON 🎉")
                 .font(.system(size: 50.0))
-            
                 .fontWeight(.bold)
                 .foregroundStyle(Color("gold"))
             Spacer()
-                .frame(height: 200.0)
+                .frame(height: 150.0)
             Button("Play again?") {
                 flips = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
                 matches = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
@@ -582,9 +581,10 @@ struct GameView: View {
                 won = false
             }
             .font(.system(size: 30.0))
+            .fontWeight(.semibold)
             .buttonStyle(.borderedProminent)
-            .foregroundStyle(Color.white)
-            .tint(Color("dark blue"))
+            .foregroundStyle(Color.black)
+            .tint(Color("cre"))
         }
     } //end of body
     
