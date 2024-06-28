@@ -1,8 +1,8 @@
 //
-//  WEAtheRApp.swift
-//  WEAtheR
+//  weatherApp.swift
+//  weather
 //
-//  Created by Caroline Cuthbert on 6/27/24.
+//  Created by Scholar on 6/21/24.
 //
 
 import SwiftUI
@@ -12,6 +12,7 @@ struct WEAtheRApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .modelContainer(for: TripItem.self)
         }
     }
 }
